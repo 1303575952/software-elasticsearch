@@ -1,4 +1,4 @@
-package com.sxu.movieelasticsearch;
+package com.sxu.elasticsearch;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

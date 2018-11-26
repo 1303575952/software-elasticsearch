@@ -1,14 +1,13 @@
-package com.sxu.movieelasticsearch.web;
+package com.sxu.elasticsearch.web;
 
-import com.sxu.movieelasticsearch.entity.Movie;
-import com.sxu.movieelasticsearch.entity.Page;
-import com.sxu.movieelasticsearch.entity.QueryDTO;
-import com.sxu.movieelasticsearch.repository.IMovieRepository;
+import com.sxu.elasticsearch.entity.Movie;
+import com.sxu.elasticsearch.entity.Page;
+import com.sxu.elasticsearch.entity.QueryDTO;
+import com.sxu.elasticsearch.repository.IRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ import java.util.List;
 public class SearchController {
 
     @Autowired
-    private IMovieRepository movieRepository;
+    private IRepository movieRepository;
 
     @GetMapping("/")
     public String index(Model model) {

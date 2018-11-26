@@ -1,4 +1,4 @@
-package com.sxu.movieelasticsearch.config;
+package com.sxu.elasticsearch.config;
 
 
 import com.google.gson.Gson;

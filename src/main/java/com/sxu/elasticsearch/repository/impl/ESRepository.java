@@ -1,9 +1,9 @@
-package com.sxu.movieelasticsearch.repository.impl;
+package com.sxu.elasticsearch.repository.impl;
 
-import com.sxu.movieelasticsearch.entity.Movie;
-import com.sxu.movieelasticsearch.entity.Page;
-import com.sxu.movieelasticsearch.entity.QueryDTO;
-import com.sxu.movieelasticsearch.repository.IMovieRepository;
+import com.sxu.elasticsearch.entity.Movie;
+import com.sxu.elasticsearch.entity.Page;
+import com.sxu.elasticsearch.entity.QueryDTO;
+import com.sxu.elasticsearch.repository.IRepository;
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestResult;
 import io.searchbox.core.Get;
@@ -27,7 +27,7 @@ import java.util.Map;
 
 @Repository
 @Slf4j
-public class MovieESRepository implements IMovieRepository {
+public class ESRepository implements IRepository {
 
     public static final String INDEX = "indextest";
     public static final String TYPE = "typetest";

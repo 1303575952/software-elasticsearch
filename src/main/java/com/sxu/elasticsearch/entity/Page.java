@@ -1,4 +1,4 @@
-package com.sxu.movieelasticsearch.entity;
+package com.sxu.elasticsearch.entity;
 
 import lombok.Builder;
 import lombok.Data;

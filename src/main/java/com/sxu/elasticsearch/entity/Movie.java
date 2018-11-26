@@ -1,4 +1,4 @@
-package com.sxu.movieelasticsearch.entity;
+package com.sxu.elasticsearch.entity;
 
 import io.searchbox.annotations.JestId;
 import lombok.Data;
