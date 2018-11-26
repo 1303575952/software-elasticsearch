@@ -11,10 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <style>
-        em{
+        em {
             color: orangered;
         }
-        form{
+
+        form {
             max-width: 280px;
             max-width: calc(100% - 100px);
         }
@@ -38,21 +39,24 @@
         <#list page.list as movie>
             <div>
                 <p>
-                    <a href="/detail/${movie.id}">
-                        ${movie.name!""}<#if movie.translatedName??><#list movie.translatedName as tn>/${tn}</#list></#if>
-                    </a>
+                    ${movie.software!""}
                 </p>
-                <p>${movie.software!"暂无简介"}</p>
+                <p>${movie.reg_num!"暂无著作权编号"}</p>
+                <p>${movie.shortened_form!"暂无版本信息"}</p>
+                <p>${movie.company!"暂无相关企业"}</p>
+                <p>${movie.reg_pos!"暂无登记机构信息"}</p>
             </div>
         </#list>
     </section>
     <nav aria-label="...">
         <ul class="pager">
             <li class="previous<#if !page.hasPrevious()> disabled</#if>">
-                <a href=<#if page.hasPrevious()>"/s?wd=${wd}&pn=${page.pageNo - 1}"<#else>#</#if>><span aria-hidden="true">&larr;</span> 上一页</a>
+                <a href=<#if page.hasPrevious()>"/s?wd=${wd}&pn=${page.pageNo - 1}"<#else>#</#if>><span
+                        aria-hidden="true">&larr;</span> 上一页</a>
             </li>
-            <li class="next<#if !page.hasNext()> disabled</#if>" >
-                <a href=<#if page.hasNext()>"/s?wd=${wd}&pn=${page.pageNo + 1}"<#else>#</#if>>下一页 <span aria-hidden="true">&rarr;</span></a>
+            <li class="next<#if !page.hasNext()> disabled</#if>">
+                <a href=<#if page.hasNext()>"/s?wd=${wd}&pn=${page.pageNo + 1}"<#else>#</#if>>下一页 <span
+                        aria-hidden="true">&rarr;</span></a>
             </li>
         </ul>
     </nav>

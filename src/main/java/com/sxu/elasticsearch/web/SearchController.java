@@ -53,14 +53,4 @@ public class SearchController {
         return "search";
     }
 
-
-    @GetMapping("/detail/{id}")
-    public String detail(
-            @PathVariable("id") String id,
-            Model model
-    ) {
-        Movie movie = movieRepository.get(id);
-        model.addAttribute("movie", movie);
-        return "detail";
-    }
 }

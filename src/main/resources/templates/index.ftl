@@ -10,7 +10,7 @@
 </head>
 <body class="container">
 <header>
-    <h1>software ElasticSearch</h1>
+    <h1>Software ElasticSearch</h1>
 </header>
 <section>
     <form action="/s" class="input-group">
