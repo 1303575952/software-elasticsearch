@@ -1,0 +1,1 @@
+select * from software_info

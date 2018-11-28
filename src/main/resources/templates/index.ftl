@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <title>software-elasticsearch</title>
+    <title>软件著作权全文检索系统</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/common.css">
 </head>
 <body class="container">
 <header>
-    <h1>Software ElasticSearch</h1>
+    <h1>软件著作权全文检索系统</h1>
 </header>
 <section>
     <form action="/s" class="input-group">

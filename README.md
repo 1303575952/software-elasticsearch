@@ -11,3 +11,6 @@ public static final String TYPE = "typetest";
 ```
 
 localhost:8080
+
+MySQL——>ElasticSearch数据同步需要conf下文件，参考教程https://blog.csdn.net/xiaocy66/article/details/83997248
+在logstash的bin目录下执行logstash.bat -f ../config/logstash.conf

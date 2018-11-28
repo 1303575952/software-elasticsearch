@@ -29,8 +29,8 @@ import java.util.Map;
 @Slf4j
 public class ESRepository implements IRepository {
 
-    public static final String INDEX = "indextest";
-    public static final String TYPE = "typetest";
+    public static final String INDEX = "software_info";
+    public static final String TYPE = "doc";
 
     @Autowired
     private JestClient client;

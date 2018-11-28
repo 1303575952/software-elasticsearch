@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <title>software-elasticsearch</title>
+    <title>软件著作权全文检索系统</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/common.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
@@ -23,7 +23,7 @@
 </head>
 <body class="container">
 <header>
-    <h1><a href="/">Software ElasticSearch</a></h1>
+    <h1><a href="/">软件著作权全文检索系统</a></h1>
     <form action="/s" class="input-group">
         <input name="wd" class="form-control" value='${wd}'>
         <div class="input-group-btn">
@@ -39,7 +39,7 @@
         <#list page.list as movie>
             <div>
                 <p>
-                    ${movie.software!""}
+                    <strong>${movie.software!""}</strong>
                 </p>
                 <p>${movie.reg_num!"暂无著作权编号"}</p>
                 <p>${movie.shortened_form!"暂无版本信息"}</p>
