@@ -36,15 +36,15 @@
         <p>共找到相关结果${page.total}个，耗时${page.took}ms</p>
     </section>
     <section>
-        <#list page.list as movie>
+        <#list page.list as software>
             <div>
                 <p>
-                    <strong>${movie.software!""}</strong>
+                    <strong>${software.software!""}</strong>
                 </p>
-                <p>${movie.reg_num!"暂无著作权编号"}</p>
-                <p>${movie.shortened_form!"暂无版本信息"}</p>
-                <p>${movie.company!"暂无相关企业"}</p>
-                <p>${movie.reg_pos!"暂无登记机构信息"}</p>
+                <p>${software.reg_num!"暂无著作权编号"}</p>
+                <p>${software.shortened_form!"暂无版本信息"}</p>
+                <p>${software.company!"暂无相关企业"}</p>
+                <p>${software.reg_pos!"暂无登记机构信息"}</p>
             </div>
         </#list>
     </section>

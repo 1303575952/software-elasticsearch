@@ -1,8 +1,8 @@
 package com.sxu.elasticsearch.repository.impl;
 
-import com.sxu.elasticsearch.entity.Movie;
 import com.sxu.elasticsearch.entity.Page;
 import com.sxu.elasticsearch.entity.QueryDTO;
+import com.sxu.elasticsearch.entity.Software;
 import com.sxu.elasticsearch.repository.IRepository;
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestResult;
@@ -36,8 +36,8 @@ public class ESRepository implements IRepository {
     private JestClient client;
 
     @Override
-    public boolean save(Movie movie) {
-        Index index = new Index.Builder(movie).index(INDEX).type(TYPE).build();
+    public boolean save(Software software) {
+        Index index = new Index.Builder(software).index(INDEX).type(TYPE).build();
         try {
             JestResult jestResult = client.execute(index);
             log.info("save返回结果{}", jestResult.getJsonString());
@@ -49,7 +49,7 @@ public class ESRepository implements IRepository {
     }
 
     @Override
-    public Page<Movie> query(String queryString, int pageNo, int size) {
+    public Page<Software> query(String queryString, int pageNo, int size) {
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         HighlightBuilder highlightBuilder = new HighlightBuilder().field("*").requireFieldMatch(false).tagsSchema("default");
         searchSourceBuilder.highlighter(highlightBuilder);
@@ -65,21 +65,21 @@ public class ESRepository implements IRepository {
                 .build();
         try {
             SearchResult result = client.execute(search);
-            List<SearchResult.Hit<Movie, Void>> hits = result.getHits(Movie.class);
-            List<Movie> movies = new ArrayList<>();
+            List<SearchResult.Hit<Software, Void>> hits = result.getHits(Software.class);
+            List<Software> softwares = new ArrayList<>();
             hits.forEach(hit -> {
-                Movie movie = hit.source;
+                Software Software = hit.source;
                 Map<String, List<String>> highlight = hit.highlight;
                 if (highlight.containsKey("software")) {
-                    movie.setSoftware(highlight.get("software").get(0));
+                    Software.setSoftware(highlight.get("software").get(0));
                 }
                 if (highlight.containsKey("copyright")) {
-                    movie.setCopyright(highlight.get("copyright").get(0));
+                    Software.setCopyright(highlight.get("copyright").get(0));
                 }
-                movies.add(movie);
+                softwares.add(Software);
             });
             int took = result.getJsonObject().get("took").getAsInt();
-            Page<Movie> page = Page.<Movie>builder().list(movies).pageNo(pageNo).size(size).total(result.getTotal()).took(took).build();
+            Page<Software> page = Page.<Software>builder().list(softwares).pageNo(pageNo).size(size).total(result.getTotal()).took(took).build();
             return page;
         } catch (IOException e) {
             log.error("search异常", e);
@@ -87,7 +87,7 @@ public class ESRepository implements IRepository {
         }
     }
     @Override
-    public Page<Movie> query(QueryDTO queryDTO, int pageNo, int size) {
+    public Page<Software> query(QueryDTO queryDTO, int pageNo, int size) {
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder().from(from(pageNo, size)).size(size);
         if (queryDTO.getMinId() != null) {
             BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
@@ -105,10 +105,10 @@ public class ESRepository implements IRepository {
                 .build();
         try {
             SearchResult result = client.execute(search);
-            List<Movie> movies = result.getSourceAsObjectList(Movie.class, false);
+            List<Software> Softwares = result.getSourceAsObjectList(Software.class, false);
             System.out.println("result:\n"+result.getJsonObject().toString());
             int took = result.getJsonObject().get("took").getAsInt();
-            Page<Movie> page = Page.<Movie>builder().list(movies).pageNo(pageNo).size(size).total(result.getTotal()).took(took).build();
+            Page<Software> page = Page.<Software>builder().list(Softwares).pageNo(pageNo).size(size).total(result.getTotal()).took(took).build();
             return page;
         } catch (IOException e) {
             log.error("search异常", e);
@@ -117,12 +117,12 @@ public class ESRepository implements IRepository {
 
     }
     @Override
-    public Movie get(String id) {
+    public Software get(String id) {
         Get get = new Get.Builder(INDEX, id).type(TYPE).build();
         try {
             JestResult result = client.execute(get);
-            Movie movie = result.getSourceAsObject(Movie.class);
-            return movie;
+            Software Software = result.getSourceAsObject(Software.class);
+            return Software;
         } catch (IOException e) {
             log.error("get异常", e);
             return null;

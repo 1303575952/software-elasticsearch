@@ -4,7 +4,7 @@ import io.searchbox.annotations.JestId;
 import lombok.Data;
 
 @Data
-public class Movie {
+public class Software {
     @JestId
     private Integer id;
 
